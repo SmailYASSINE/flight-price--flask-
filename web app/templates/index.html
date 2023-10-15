@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Price Prediction</title>
+    
+</head>
+<body>
+    <div id="wrap" style="text-align: center; padding: 20px;">
+        <h1 style="font-size: 24px;">Predict Flight Prices</h1>
+
+        <section id="flight" style="border: 1px solid #ccc; padding: 20px; display: inline-block;">
+            <div class="login" style="text-align: left;">
+                <form action="{{ url_for('predict') }}" method="post">
+                    <table class="entryForm" style="margin: 0 auto;">
+                        <tr>
+                            <th style="padding-right: 10px;">Stops:</th>
+                            <td><input type="text" name="stops" style="padding: 5px;" placeholder="Number of Stops" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th style="padding-right: 10px;">Class:</th>
+                            <td><input type="text" name="class" style="padding: 5px;" placeholder="Class" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th style="padding-right: 10px;">Duration:</th>
+                            <td><input type="text" name="duration" style="padding: 5px;" placeholder="Duration" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th style="padding-right: 10px;">Days Left:</th>
+                            <td><input type="text" name="days_left" style="padding: 5px;" placeholder="Days Left" required="required" /></td>
+                        </tr>
+                        <!-- Add input fields for other features in final_selected_features here -->
+                        <!-- Example: -->
+
+                        <tr>
+                        <th style="padding-right: 10px;">Airline: (Select one)</th>
+                        <td>
+                            <label><input type="radio" name="airline" value="Air India"> Air India</label><br>
+                            <label><input type="radio" name="airline" value="GO FIRST"> GO FIRST</label><br>
+                            <label><input type="radio" name="airline" value="Indigo"> Indigo</label><br>
+                            <label><input type="radio" name="airline" value="SpiceJet"> SpiceJet</label><br>
+                            <label><input type="radio" name="airline" value="Vistara"> Vistara</label><br>
+                        </td>
+                        </tr>
+                        
+                        <tr>
+                            <th style="padding-right: 10px;">Flight:</th>
+                            <td>
+                                <label><input type="radio" name="flight" value="UK-720"> UK-720</label><br>
+                                <label><input type="radio" name="flight" value="UK-822"> UK-822</label><br>
+                                <label><input type="radio" name="flight" value="UK-826"> UK-826</label><br>
+                                <label><input type="radio" name="flight" value="UK-828"> UK-828</label><br>
+                                <label><input type="radio" name="flight" value="UK-874"> UK-874</label><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="padding-right: 10px;">Arrival Time:</th>
+                            <td><input type="text" name="arrival_time" style="padding: 5px;" placeholder="Arrival Time" required="required" /></td>
+                        </tr>
+                        
+                        <!-- Departure Time -->
+                        <tr>
+                            <th style="padding-right: 10px;">Departure Time:</th>
+                            <td><input type="text" name = "departure_time" style="padding: 5px;" placeholder="Departure Time" required="required" /></td>
+                        </tr>
+                    </table>
+                    <div class="btns" style="margin-top: 10px;">
+                        <button type="reset" style="padding: 5px 10px; background-color: #ccc;">Reset</button>
+                        <button type="submit" style="padding: 5px 10px; background-color: #007BFF; color: #fff;">Predict</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        {{prediction_text}}
+        <div id="prediction_text" style="font-size: 18px;"></div>
+    </div>
+</body>
+</html>
